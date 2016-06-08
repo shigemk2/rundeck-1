@@ -38,5 +38,8 @@ EXPOSE 4440 4443
 
 VOLUME  ["/etc/rundeck", "/var/rundeck", "/var/lib/rundeck", "/var/lib/mysql", "/var/log/rundeck", "/opt/rundeck-plugins"]
 
+# td-agent
+RUN curl -L https://td-toolbelt.herokuapp.com/sh/install-debian-jessie-td-agent2.sh | sh
+
 # Start Supervisor
 ENTRYPOINT ["/opt/run"]
