@@ -4,7 +4,7 @@
 
 FROM debian:jessie
 
-MAINTAINER Jordan Jethwa
+MAINTAINER shigemk2
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV SERVER_URL https://localhost:4443
