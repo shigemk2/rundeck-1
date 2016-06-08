@@ -1,7 +1,7 @@
 rundeck
 ==============
 
-This repository contains the source for the [Rundeck](http://rundeck.org/) [docker](https://docker.io) image.
+This repository contains the source for the [Rundeck](http://rundeck.org/) [docker](https://docker.io) image **AND td-agent**.
 
 # Image details
 
@@ -16,15 +16,16 @@ This repository contains the source for the [Rundeck](http://rundeck.org/) [dock
 
 # Automated build
 
-```
-docker pull jordan/rundeck
+```sh
+cd rundeck-td
+docker build -t rundeck-td .
 ```
 
 # Usage
 Start a new container and bind to host's port 4440
 
 ```
-sudo docker run -p 4440:4440 -e SERVER_URL=http://MY.HOSTNAME.COM:4440 -t jordan/rundeck:latest
+docker run -p 4440:4440 -e SERVER_URL=http://MY.HOSTNAME.COM:4440 -v /path/to/.td:/var/lib/rundeck/.td -t rundeck-td
 ```
 
 # Rundeck plugins
